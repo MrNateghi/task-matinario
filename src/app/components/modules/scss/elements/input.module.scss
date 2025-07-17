@@ -1,0 +1,52 @@
+.inputGroup {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1.5rem;
+
+  & .input {
+    width: 100%;
+    padding: 1rem 0.8rem 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease-in-out;
+
+    &:focus {
+      outline: none;
+      border-color: #007bff;
+    }
+
+    &:focus + .inputLabel,
+    &:not(:placeholder-shown) + .inputLabel {
+      top: -0.1rem;
+      font-size: 0.9rem;
+      color: #007bff;
+      background-color: #f8f9fa;
+      padding: 0 0.2rem;
+    }
+  }
+
+  & .inputLabel {
+    position: absolute;
+    top: 1.3rem;
+    left: 0.8rem;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 1.2rem;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  & .error {
+    border-color: #dc3545;
+  }
+
+  & .errorMessage {
+    color: #dc3545;
+    font-size: 0.7rem;
+    margin-top: 0.3rem;
+    position: absolute;
+    bottom: -1.3rem;
+  }
+}
