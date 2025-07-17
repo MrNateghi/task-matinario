@@ -19,7 +19,9 @@ const Auth = () => {
     return phoneRegex.test(phone);
   };
 
-  const handleLogin = async () => {
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     if (!validatePhone(phone)) {
       setError("should start with 09 and 11 number character");
       return;
@@ -59,12 +61,10 @@ const Auth = () => {
   return (
     <div className={styles.authContainer}>
       <h1>WELLCOME to Task!!</h1>
-      <div className={styles.form}>
+      <form className={styles.form} onSubmit={handleLogin}>
         <Input value={phone} onChange={setPhone} label="phone" error={error} />
-        <Button onClick={handleLogin} disabled={loading}>
-          {loading ? "loading..." : "login"}
-        </Button>
-      </div>
+        <Button disabled={loading}>{loading ? "loading..." : "login"}</Button>
+      </form>
     </div>
   );
 };
